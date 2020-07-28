@@ -1,0 +1,69 @@
+@import "global";
+@import "variables";
+
+.container {
+  margin: 8rem auto;
+  background-color: $main-grey;
+  height: 450px;
+  width: 306px;
+
+  .top-section {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid $white;
+    height: 40px;
+    width: 298px;
+    
+    .face {
+      font-size: 3rem;
+      border: 2px solid $white;
+      border-right-color: $border-grey;
+      border-bottom-color: $border-grey;
+    }
+  }
+
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    height: 396px;
+    width: 306px;
+
+    div {
+      border: 2px solid $white;
+      border-right-color: $border-grey;
+      border-bottom-color: $border-grey;
+      height: 30px;
+      width: 30px;
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .checked {
+      border: 0.5px dashed $border-grey;
+    }
+    // -- testing ---
+    .bomb {
+      // background-color: black;
+      .red {
+        background-color: red !important;
+      }
+    }
+  }
+  .one { 
+    color: blue;
+  }
+  .two {
+    color: green;
+  }
+  .three {
+    color: red;
+  }
+  .four {
+    color: navy;
+  }
+  .five {
+    color: maroon;
+  }
+}
