@@ -1,16 +1,23 @@
 const grid = document.querySelector('.grid')
 const face = document.querySelector('.face')
-
+const flagsLeft = document.querySelector('.flags')
+const timerDisplay = document.querySelector('.timer')
 let width = 10
 let height = 13
 let bombAmount = 20
 let squares = []
 let isGameOver = false
 let flags = 0
+let timer = false
+let seconds = 0
+let minutes = 0
+let displaySeconds = 0
+let displayMinutes = 0
+let interval = null
 
 //create Board
 function createBoard() {
-
+  flagsLeft.innerHTML = bombAmount - flags
   const bombsArray = Array(bombAmount).fill('bomb')
   const emptyArray = Array(width * height - bombAmount).fill('valid')
   const gameArray = emptyArray.concat(bombsArray)
@@ -27,7 +34,7 @@ function createBoard() {
     grid.appendChild(square)
     squares.push(square)
 
-    square.addEventListener('click', function () {
+    square.addEventListener('click', () => {
       click(square)
     })
 
@@ -75,19 +82,23 @@ function addFlag(square) {
       square.classList.add('flag')
       square.innerHTML = '⚑'
       flags++
-      // flagsLeft.innerHTML = bombAmount- flags
+      flagsLeft.innerHTML = bombAmount - flags
       checkForWin()
     } else {
       square.classList.remove('flag')
       square.innerHTML = ''
       flags--
-      // flagsLeft.innerHTML = bombAmount- flags
+      flagsLeft.innerHTML = bombAmount - flags
     }
   }
 }
 
 function click(square) {
 
+  if (!timer) {
+    timer = true
+    interval = window.setInterval(setTimer, 1000)
+  }
   if (isGameOver) return
   if (square.classList.contains('checked')) return
   if (square.classList.contains('bomb')) {
@@ -112,9 +123,25 @@ function click(square) {
   square.classList.add('checked')
 }
 
+//display timer 
+function setTimer() {
+
+  timer = true
+  seconds++
+  seconds < 10 ? displaySeconds = "0" + seconds.toString() : displaySeconds = seconds
+  minutes < 10 ? displayMinutes = "0" + minutes.toString() : displayMinutes = minutes
+
+  if (seconds / 60 === 1) {
+    seconds = 0
+    minutes++
+  }
+  timerDisplay.innerHTML = displayMinutes + ":" + displaySeconds
+}
+
 function gameOver() {
   isGameOver = true
   face.innerHTML = '☹'
+  window.clearInterval(interval)
   squares.forEach(square => (square.classList.contains('bomb')) ? markBombs(square) : null)
 }
 // give checked class to all bombs after clicking one bomb
@@ -180,7 +207,6 @@ function checkSquare(sq, currentId) {
 }
 
 //check if won
-
 function checkForWin() {
   let matches = 0
   if (isGameOver) {
@@ -197,7 +223,14 @@ function checkForWin() {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 function resetGame() {
+  window.clearInterval(interval)
+  timer = false
+  seconds = 0
+  minutes = 0
+  timerDisplay.innerHTML = "00:00" 
+  flagsLeft.innerHTML = ""
   face.innerHTML = '☺'
   width = 10
   height = 13
@@ -205,7 +238,6 @@ function resetGame() {
   squares = []
   isGameOver = false
   flags = 0
-  grid.innerHTML = "";
+  grid.innerHTML = ""
   createBoard()
-}
-
+}  

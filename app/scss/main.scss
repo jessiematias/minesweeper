@@ -1,24 +1,47 @@
-@import "global";
-@import "variables";
+@import 'global';
+@import 'variables';
 
 .container {
   margin: 8rem auto;
   background-color: $main-grey;
   height: 450px;
-  width: 306px;
+  width: 314px;
+  border: 7px outset white;
 
   .top-section {
     display: flex;
     justify-content: space-between;
-    border: 2px solid $white;
+    border: 4px inset $white;
     height: 40px;
     width: 298px;
-    
+
+    .flags {
+      font-size: 2.5rem;
+      width: 8.4rem;
+      background-color: black;
+      color: red;
+      text-align: center;
+      border: 2px inset $white;
+    }
+
     .face {
       font-size: 3rem;
+      background-color: $main-grey;
       border: 2px solid $white;
       border-right-color: $border-grey;
       border-bottom-color: $border-grey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .timer {
+      text-align: center;
+      color: red;
+      font-size: 2.5rem;
+      width: 9rem;
+      background-color: black;
+      border: 2px inset $white;
     }
   }
 
@@ -42,28 +65,29 @@
 
     .checked {
       border: 0.5px dashed $border-grey;
-    }
-    // -- testing ---
-    .bomb {
-      // background-color: black;
-      .red {
-        background-color: red !important;
+      &.red {
+        background-color: red;
       }
     }
-  }
-  .one { 
-    color: blue;
-  }
-  .two {
-    color: green;
-  }
-  .three {
-    color: red;
-  }
-  .four {
-    color: navy;
-  }
-  .five {
-    color: maroon;
+
+    .one {
+      color: blue;
+    }
+
+    .two {
+      color: green;
+    }
+
+    .three {
+      color: red;
+    }
+
+    .four {
+      color: navy;
+    }
+
+    .five {
+      color: maroon;
+    }
   }
 }
