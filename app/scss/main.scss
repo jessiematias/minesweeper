@@ -4,7 +4,7 @@
 .container {
   margin: 8rem auto;
   background-color: $main-grey;
-  height: 45rem;
+  height: 44.5rem;
   width: 31.4rem;
   border: 7px outset white;
 
@@ -31,12 +31,9 @@
       background-repeat: no-repeat;
       background-size: 5.7rem;     
       background-color: $main-grey;
-      // border: 2px solid $white;
-      // border-right-color: $border-grey;
-      // border-bottom-color: $border-grey;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
+      border: 2px solid $white;
+      border-right-color: $border-grey;
+      border-bottom-color: $border-grey;
       width: 3rem;
     }
 
@@ -53,7 +50,7 @@
   .grid {
     display: flex;
     flex-wrap: wrap;
-    height: 39.6rem;
+    height: 39rem;
     width: 30.6rem;
  
     div {
