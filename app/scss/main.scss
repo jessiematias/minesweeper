@@ -4,16 +4,16 @@
 .container {
   margin: 8rem auto;
   background-color: $main-grey;
-  height: 450px;
-  width: 314px;
+  height: 45rem;
+  width: 31.4rem;
   border: 7px outset white;
 
   .top-section {
     display: flex;
     justify-content: space-between;
     border: 4px inset $white;
-    height: 40px;
-    width: 298px;
+    height: 4rem;
+    width: 29.8rem;
 
     .flags {
       font-size: 2.5rem;
@@ -25,14 +25,19 @@
     }
 
     .face {
-      font-size: 3rem;
+      height: 3rem;
+      background-image: url('../proxy-image-1.png');
+      background-position: 0% 0%;
+      background-repeat: no-repeat;
+      background-size: 5.7rem;     
       background-color: $main-grey;
-      border: 2px solid $white;
-      border-right-color: $border-grey;
-      border-bottom-color: $border-grey;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      // border: 2px solid $white;
+      // border-right-color: $border-grey;
+      // border-bottom-color: $border-grey;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      width: 3rem;
     }
 
     .timer {
@@ -48,15 +53,15 @@
   .grid {
     display: flex;
     flex-wrap: wrap;
-    height: 396px;
-    width: 306px;
-
+    height: 39.6rem;
+    width: 30.6rem;
+ 
     div {
       border: 2px solid $white;
       border-right-color: $border-grey;
       border-bottom-color: $border-grey;
-      height: 30px;
-      width: 30px;
+      height: 3rem;
+      width: 3rem;
       font-size: 2rem;
       display: flex;
       justify-content: center;

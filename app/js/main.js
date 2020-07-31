@@ -140,7 +140,7 @@ function setTimer() {
 
 function gameOver() {
   isGameOver = true
-  face.innerHTML = '☹'
+  face.style.backgroundPosition = '100% 100%'
   window.clearInterval(interval)
   squares.forEach(square => (square.classList.contains('bomb')) ? markBombs(square) : null)
 }
@@ -217,7 +217,7 @@ function checkForWin() {
       matches++
     }
     if (matches === bombAmount) {
-      face.innerHTML = '☻'
+      face.style.backgroundPosition = '0% 100%'
       isGameOver = true
     }
   }
@@ -231,7 +231,7 @@ function resetGame() {
   minutes = 0
   timerDisplay.innerHTML = "00:00" 
   flagsLeft.innerHTML = ""
-  face.innerHTML = '☺'
+  face.style.backgroundPosition = '0% 0%'
   width = 10
   height = 13
   bombAmount = 20
